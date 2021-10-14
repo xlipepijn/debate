@@ -1,8 +1,16 @@
-const io = require("socket.io")(3001, {
-  cors: {
-    origin: ["http://localhost:3000"],
-  },
-});
+
+// const server = express()
+// const PORT = process.env.PORT || 3001;
+// const io = socketIO(server)
+
+// const io = require("socket.io")(3001, {
+//   cors: {
+//     origin: ["http://localhost:3000"],
+//   },
+// });
+
+const io = require('socket.io')()
+
 let amountJoined = 0;
 io.on("connection", (socket) => {
   console.log("connected");
@@ -34,3 +42,5 @@ io.on("connection", (socket) => {
     });
   });
 });
+
+io.listen(process.env.PORT || 3001)
