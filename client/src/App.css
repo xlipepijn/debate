@@ -527,6 +527,10 @@ input {
   align-items: center;
 }
 
+.available-conversations-text {
+  display: none;
+}
+
 
 
 @media only screen and (max-width: 1000px) {
@@ -574,12 +578,13 @@ input {
 }
 #home-buttons-container {
   flex-direction: column;
+  margin-bottom: 40px !important;
 }
 
 .secundairy-button-outlined {
-  margin-top: 10px !important;
   width: 100%;
-  margin: 0;
+  margin: 0 !important;
+  margin-top: 5px !important;
 }
 
 .secundairy-button {
@@ -595,5 +600,24 @@ input {
   left: auto;
 }
 
+.available-conversations-text {
+  display: flex;
+}
 
+}
+
+@media only screen and (max-width: 510px){
+
+  .login-container {
+    width: 100%;
+    padding: 30px;
+  }
+
+  .center {
+    padding: 10px;
+  }
+
+  .logo-login {
+    max-width: 100%;
+  }
 }

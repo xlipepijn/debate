@@ -43,6 +43,7 @@ const NewUser = () => {
         src={logo}
         alt=""
         style={{ maxHeight: "60px", marginBottom: "20px" }}
+        className="logo-login"
       />
 
       <div className="login-container">
@@ -82,7 +83,10 @@ const NewUser = () => {
           </button>
         </a>
         <p className="microcopy" style={{ textAlign: "left" }}>
-          Please make sure to read our <a href="">community guidelines</a>{" "}
+          Please make sure to read our{" "}
+          <a target="_blank" href="https://www.wikihow.com/Be-Nice">
+            community guidelines
+          </a>{" "}
           before entering a discussion
         </p>
       </div>

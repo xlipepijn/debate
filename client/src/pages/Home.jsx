@@ -8,6 +8,7 @@ import { IoReload } from "react-icons/io5";
 import { AiOutlinePlus } from "react-icons/ai";
 import {IconContext} from 'react-icons'
 import { getJoinedConversation } from "../API/Calls";
+import {FiChevronDown} from 'react-icons/fi'
 
 
 const Home = ({color1, color2, color3, userId}) => {
@@ -62,59 +63,81 @@ const toggleModal = () =>{
                 color3={color3}
               />
             </div>
-            <a href="/" id='reshuffle-avatar-button' style={{ cursor: "pointer" }} onClick={createUser}>
+            <a
+              href="/"
+              id="reshuffle-avatar-button"
+              style={{ cursor: "pointer" }}
+              onClick={createUser}
+            >
               Reshuffle your avatar
             </a>
           </div>
           <img
             src={logo}
-            style={{height:'39.67', width: "250px", marginTop: "20px", marginBottom: "20px" }}
+            style={{
+              height: "39.67",
+              width: "250px",
+              marginTop: "20px",
+              marginBottom: "20px",
+            }}
           />
-          <div id='header-filler' style={{ width: "190px" }}></div>
+          <div id="header-filler" style={{ width: "190px" }}></div>
         </div>
-        <div className='contents-page'>
-        <div className="title-container">
-          <h1 style={{ marginBottom: "10px" }}>Join or start a discussion</h1>
-          <p>
-            Challenge someone's believe by entering with them in a chat or start a discussion yourself by pressing 'start your own
-            disussion'
-          </p>
-          <div id='home-buttons-container' style={{ marginBottom: "60px", display: "flex" }}>
-            <button
-              onClick={toggleModal}
-              style={{ marginTop: "25px", marginRight: "5px" }}
-              className="secundairy-button flex"
+        <div className="contents-page">
+          <div className="title-container">
+            <h1 style={{ marginBottom: "10px" }}>Join or start a discussion</h1>
+            <p>
+              Challenge someone's believe by entering with them in a chat or
+              start a discussion yourself by pressing 'start your own disussion'
+            </p>
+            <div
+              id="home-buttons-container"
+              style={{ marginBottom: "60px", display: "flex" }}
             >
-              <IconContext.Provider value={{ className: "icons" }}>
-                <AiOutlinePlus />
-              </IconContext.Provider>
-              Start my own discussion
-            </button>
-            <button
-              style={{ marginTop: "25px", marginLeft: "5px" }}
-              className="secundairy-button-outlined flex"
-              onClick={getNextPage}
-            >
-              <IconContext.Provider value={{ className: "icons-black" }}>
-                <IoReload />
-              </IconContext.Provider>
-              Show me other discussions
-            </button>
+              <button
+                onClick={toggleModal}
+                style={{ marginTop: "25px", marginRight: "5px" }}
+                className="secundairy-button flex"
+              >
+                <IconContext.Provider value={{ className: "icons" }}>
+                  <AiOutlinePlus />
+                </IconContext.Provider>
+                Start my own discussion
+              </button>
+              <button
+                style={{ marginTop: "25px", marginLeft: "5px" }}
+                className="secundairy-button-outlined flex"
+                onClick={getNextPage}
+              >
+                <IconContext.Provider value={{ className: "icons-black" }}>
+                  <IoReload />
+                </IconContext.Provider>
+                Show me other discussions
+              </button>
+            </div>
           </div>
-        </div>
-        <Lobby getNextPage={getNextPage} page={page} setPage={setPage} history={history} />
-
-        {showModal && (
-          <CreateConversation
-            userId={userId}
-            color1={color1}
-            color2={color2}
-            color3={color3}
-            toggleModal={toggleModal}
+          <div className='available-conversations-text flex' style={{ marginBottom: "20px"}}>
+            <p style={{marginRight:'5px' }}> Available conversation topics </p>
+            <FiChevronDown/>
+          </div>
+          <Lobby
+            getNextPage={getNextPage}
+            page={page}
+            setPage={setPage}
+            history={history}
           />
-        )}
+
+          {showModal && (
+            <CreateConversation
+              userId={userId}
+              color1={color1}
+              color2={color2}
+              color3={color3}
+              toggleModal={toggleModal}
+            />
+          )}
+        </div>
       </div>
-    </div>
     );
 }
 
