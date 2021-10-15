@@ -1,3 +1,8 @@
+// import face from '../images/face-outline.svg'
+import {ReactComponent as Face} from '../images/face-outline.svg'
+import {ReactComponent as FaceFill} from '../images/face-fill.svg'
+// import faceFill from '../images/face-fill.svg'
+
 const Avatar = (props) => {
   return (
     <div>
@@ -9,13 +14,24 @@ const Avatar = (props) => {
           position: "relative",
         }}
       >
+        <div className="face-avatar">
+          {/* <img style={{ width: "100%", height: "100%" }} src={face} alt="" /> */}
+          <Face fill={props.color3} width='100%'/>
+        </div>
         <div
-          style={{ width: "50%", height: "100%", backgroundColor: props.color1 }}
+          style={{
+            width: "50%",
+            height: "100%",
+            backgroundColor: props.color1,
+          }}
         ></div>
         <div
-          style={{ width: "50%", height: "100%", backgroundColor: props.color2 }}
+          style={{
+            width: "50%",
+            height: "100%",
+            backgroundColor: props.color2,
+          }}
         ></div>
-        <div style={{position:'absolute', height:'30%',width:'30%', backgroundColor:props.color3, marginLeft:'35%', marginTop:'35%', borderRadius:'999px'}}></div>
       </div>
     </div>
   );

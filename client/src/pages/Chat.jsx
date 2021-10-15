@@ -10,6 +10,7 @@ import Message from "../components/Message";
 import { useHistory } from "react-router-dom";
 import ErrorModal from '../components/ErrorModal'
 import FeedbackModal from '../components/FeedbackModal'
+import Credits from '../components/Credits'
 const Chat = ({ match, color1, color2, color3, userId }) => {
   const [socket, setSocket] = useState();
   const [connected, setConnected] = useState(false);
@@ -273,6 +274,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
           </div>
         </div>
       </div>
+      <Credits/>
     </div>
   );
 };

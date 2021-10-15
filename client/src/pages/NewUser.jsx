@@ -5,6 +5,8 @@ import anon from "../images/anon.png";
 import reload from "../images/reload.png";
 import Avatar from "../components/Avatar";
 import "../App.css";
+import Credits from '../components/Credits'
+
 
 const NewUser = () => {
   // Random color generator
@@ -72,7 +74,7 @@ const NewUser = () => {
             color2={color2}
             color3={color3}
           />
-          <button onClick={reshuffleColors} className="round-button">
+          <button onClick={reshuffleColors} className="round-button" style={{zIndex:'200'}}>
             <img style={{ height: "12px" }} src={reload} alt="" />
           </button>
         </div>
@@ -90,6 +92,7 @@ const NewUser = () => {
           before entering a discussion
         </p>
       </div>
+      <Credits/>
     </div>
   );
 };

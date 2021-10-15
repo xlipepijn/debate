@@ -9,6 +9,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import {IconContext} from 'react-icons'
 import { getJoinedConversation } from "../API/Calls";
 import {FiChevronDown} from 'react-icons/fi'
+import Credits from '../components/Credits'
 
 
 const Home = ({color1, color2, color3, userId}) => {
@@ -137,6 +138,7 @@ const toggleModal = () =>{
             />
           )}
         </div>
+        <Credits right={true}/>
       </div>
     );
 }
