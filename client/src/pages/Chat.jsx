@@ -176,7 +176,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
             marginBottom: "20px",
           }}
         />
-        <div style={{ width: "40px" }}></div>
+        <div style={{ width: "50px" }}></div>
       </div>
       <div>
         {/* Chat */}
@@ -210,7 +210,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
               <div style={{ display: "flex", justifyContent: "end" }}>
                 Time left:
                 <Timer
-                  timeTillTimeOut={100}
+                  timeTillTimeOut={200}
                   startTimer={startTimer}
                   stopTimer={stopConversation}
                 />
