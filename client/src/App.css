@@ -572,7 +572,7 @@ input {
   height: 300px;
   border-style: dashed;
   border-color: #80808063;
-  border-width: 1, 5px;
+  border-width: 2px;
   border-radius: 9px;
   display: flex;
   width: 620px;

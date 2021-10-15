@@ -41,7 +41,7 @@ const Lobby = ({ page, getNextPage, setPage, history }) => {
   return (
     <div className="lobby">
       {loading && <Loading />}
-      <div className={!! conversations ? 'empty-lobby' : "lobby-grid"}>
+      <div className={!!conversations ? 'empty-lobby' : "lobby-grid"}>
 
         {/* {!!conversations && <p>EMPP</p>} */}
         {!!conversations ? <p>No conversations currently available to join</p> : conversations.map((i) => (
