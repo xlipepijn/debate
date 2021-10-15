@@ -236,6 +236,7 @@ hr {
 }
 
 .header {
+  max-height: 80px;
   display: flex;
   width: 100%;
   justify-content: space-between;
