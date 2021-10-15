@@ -2,13 +2,12 @@
 // const server = express()
 const PORT = process.env.PORT || 3001;
 // const io = socketIO(server)
+//       "https://gracious-mirzakhani-0dd9d5.netlify.app",
+//       "https://changemind.nl/",
 
 const io = require("socket.io")(PORT, {
   cors: {
-    origin: [
-      "https://gracious-mirzakhani-0dd9d5.netlify.app",
-      "https://changemind.nl/",
-    ],
+    origin: ["*"],
     methods: ["GET", "POST"],
     credentials: true,
   },
