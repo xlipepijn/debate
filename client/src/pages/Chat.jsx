@@ -202,7 +202,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
             <div className="chat-header-right">
               <a
                 onClick={endConversationHandler}
-                style={{ color: "red", cursor: "pointer" }}
+                style={{ color: "red", cursor: "pointer", textAlign:'right' }}
               >
                 End and leave conversation
               </a>
