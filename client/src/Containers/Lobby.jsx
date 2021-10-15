@@ -31,20 +31,20 @@ const Lobby = ({ page, getNextPage, setPage, history }) => {
   // Go to first page if next page is empty
   useEffect(() => {
 
-    if (!!conversations || conversations[0] === undefined) {
+    if (!conversations[0] || conversations[0] === undefined) {
       setPage(1);
     }
   }, [conversations]);
 
-  // console.log(conversations[0])
+
 
   return (
     <div className="lobby">
       {loading && <Loading />}
-      <div className={!!conversations ? 'empty-lobby' : "lobby-grid"}>
+      <div className={!conversations[0] ? 'empty-lobby' : "lobby-grid"}>
 
         {/* {!!conversations && <p>EMPP</p>} */}
-        {!!conversations ? <p>No conversations currently available to join</p> : conversations.map((i) => (
+        {!conversations[0] ? <p>No conversations currently available to join</p> : conversations.map((i) => (
           <Conversation
             topic={i.topic}
             color1={i.joinedUsers[0].color1}
