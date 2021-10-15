@@ -645,4 +645,8 @@ input {
   .logo-login {
     max-width: 100%;
   }
+
+  .right-aligned{
+    right: 0;
+  }
 }
