@@ -274,7 +274,6 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
           </div>
         </div>
       </div>
-      <Credits right={true}/>
     </div>
   );
 };

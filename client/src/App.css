@@ -474,9 +474,8 @@ input {
 }
 
 .chat-bubble {
-  background-color: rgb(221, 221, 221);
-  border-style: solid;
-  border-width: 1px;
+  background-color:#E5E5E5;
+
   width: fit-content;
   padding: 10px;
   border-radius: 9px;
