@@ -191,6 +191,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
                     color1={colorsOpponent.color1}
                     color2={colorsOpponent.color2}
                     color3={colorsOpponent.color3}
+                    noTopFix={true}
                   />
                   <p>‎‎‎‎ ‎'s statement:</p>
                 </div>
@@ -202,7 +203,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
             <div className="chat-header-right">
               <a
                 onClick={endConversationHandler}
-                style={{ color: "red", cursor: "pointer", textAlign:'right' }}
+                style={{ color: "red", cursor: "pointer", textAlign: "right" }}
               >
                 End and leave conversation
               </a>
