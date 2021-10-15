@@ -23,17 +23,22 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
+          {userExists.current ?
           <Home
             color1={color1}
             color2={color2}
             color3={color3}
             userId={userId}
           />
-          {!userExists.current && <Redirect to="/new-user" />}
+          :<NewUser/>
+          
+          
+          }
+          {/* {!userExists.current && <Redirect to="/new-user" />} */}
         </Route>
-        <Route path="/new-user" component={NewUser}>
+        {/* <Route path="/new-user" component={NewUser}>
           {userExists.current && <Redirect to="/" />}
-        </Route>
+        </Route> */}
         <Route
           path="/chat/:id"
           render={({ match }) => (
