@@ -165,7 +165,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
               color3={color3}
             />
           </div>
-          <div style={{ marginRight: "130px" }}></div>
+          <div style={{ marginRight: "0px" }}></div>
         </div>
         <img
           src={logo}
@@ -176,7 +176,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
             marginBottom: "20px",
           }}
         />
-        <div style={{ width: "0px" }}></div>
+        <div style={{ width: "40px" }}></div>
       </div>
       <div>
         {/* Chat */}
