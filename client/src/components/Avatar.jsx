@@ -14,7 +14,7 @@ const Avatar = (props) => {
           position: "relative",
         }}
       >
-        <div className={props.noTopFix === true ? "face-avatar" : 'face-avatar no-top'}>
+        <div className={props.noTopFix === true ? "face-avatar no-top" : 'face-avatar'}>
           {/* <img style={{ width: "100%", height: "100%" }} src={face} alt="" /> */}
           <Face fill={props.color3} width='100%'/>
         </div>
