@@ -618,7 +618,6 @@ border: none;
   }
   #home-buttons-container {
     flex-direction: column;
-    /* margin-bottom: 40px !important; */
   }
 
   .secundairy-button-outlined {

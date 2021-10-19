@@ -19,7 +19,7 @@ const OnlineUsers = ({ amountOnline }) => {
         {" "}
         <span style={{ fontWeight: "600" }}>
           {" "}
-          {amountOnline} users are currently live{" "}
+          {amountOnline} users are currently online{" "}
         </span>{" "}
         and ready to be conversated with!
       </p>
