@@ -1,28 +1,35 @@
 const OnlineUsers = ({ amountOnline }) => {
   return (
-    <div
-      className="flex"
-      style={{
-        justifyContent: "left",
-      }}
-    >
+    <div style={{marginTop:'5px'}}>
       <div
+        className="flex online-users-container"
         style={{
-          minHeight: "10px",
-          minWidth: "10px",
-          backgroundColor: "#21B042",
-          borderRadius: "99px",
-          marginRight: "5px",
+          justifyContent: "left",
         }}
-      ></div>
-      <p style={{ fontSize: "14px" }}>
-        {" "}
-        <span style={{ fontWeight: "600" }}>
-          {" "}
-          {amountOnline} users are currently online{" "}
-        </span>{" "}
-        and ready to be conversated with!
-      </p>
+      >
+        
+        <div className="pointer-online-users-container"></div>
+        
+        <div className='flex' style={{zIndex:'99'}}>
+          <div
+            style={{
+              minHeight: "10px",
+              minWidth: "10px",
+              backgroundColor: "#21B042",
+              borderRadius: "99px",
+              marginRight: "5px",
+            }}
+          ></div>
+          <p style={{ fontSize: "14px", color:'white' }}>
+            {" "}
+            <span style={{ fontWeight: "600", color:'white' }}>
+              {" "}
+              {amountOnline} users are currently online{" "}
+            </span>{" "}
+            and ready to be conversated with!
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

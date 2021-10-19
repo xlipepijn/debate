@@ -554,6 +554,32 @@ border: none;
   top:0%;
 }
 
+.online-users-container{
+ 
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: fit-content;
+  border-radius: 9px;
+  position: relative;
+  background-color: #CF3636;
+  
+}
+
+.pointer-online-users-container{
+ width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  
+  border-bottom: 8px solid #CF3636;
+  /* background-color: black; */
+  position: absolute;
+  left: 17px;
+  top: -8px;
+ 
+}
+
 @media only screen and (max-width: 1000px) {
   .lobby {
     width: 100%;
@@ -623,7 +649,7 @@ border: none;
   .secundairy-button-outlined {
     width: 100%;
     margin: 0 !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 20px !important;
     margin-top: 5px !important;
   }
 
