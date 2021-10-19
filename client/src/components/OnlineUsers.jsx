@@ -4,8 +4,6 @@ const OnlineUsers = ({ amountOnline }) => {
       className="flex"
       style={{
         justifyContent: "left",
-        marginTop: "-55px",
-        marginBottom: "60px",
       }}
     >
       <div

@@ -114,7 +114,7 @@ const Home = ({ color1, color2, color3, userId }) => {
 
           <div
             id="home-buttons-container"
-            style={{ marginBottom: "60px", display: "flex" }}
+            style={{ display: "flex" }}
           >
             <button
               onClick={toggleModal}
@@ -143,7 +143,7 @@ const Home = ({ color1, color2, color3, userId }) => {
         </div>
         <div
           className="available-conversations-text flex"
-          style={{ marginBottom: "20px" }}
+          // style={{ marginBottom: "20px" }}
         >
           <p style={{ marginRight: "5px" }}> Available conversation topics </p>
           <FiChevronDown />

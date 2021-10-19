@@ -261,6 +261,7 @@ hr {
 
 .title-container {
   width: 647px;
+  margin-bottom: 60px;
 }
 
 .icons {
@@ -555,7 +556,7 @@ border: none;
 
 @media only screen and (max-width: 1000px) {
   .lobby {
-    width: 100vw;
+    width: 100%;
   }
 }
 
@@ -607,6 +608,7 @@ border: none;
 
   .title-container {
     width: auto;
+    margin-bottom: 60px;
   }
 
   .contents-page {
@@ -616,12 +618,13 @@ border: none;
   }
   #home-buttons-container {
     flex-direction: column;
-    margin-bottom: 40px !important;
+    /* margin-bottom: 40px !important; */
   }
 
   .secundairy-button-outlined {
     width: 100%;
     margin: 0 !important;
+    margin-bottom: 10px !important;
     margin-top: 5px !important;
   }
 
@@ -657,7 +660,5 @@ border: none;
     max-width: 100%;
   }
 
-  .right-aligned{
-    right: 0;
-  }
+  
 }
