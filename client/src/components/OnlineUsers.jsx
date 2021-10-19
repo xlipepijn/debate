@@ -8,8 +8,8 @@ const OnlineUsers = ({ amountOnline }) => {
     >
       <div
         style={{
-          height: "10px",
-          width: "10px",
+          minHeight: "10px",
+          minWidth: "10px",
           backgroundColor: "#21B042",
           borderRadius: "99px",
           marginRight: "5px",
