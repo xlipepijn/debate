@@ -41,19 +41,28 @@ const Lobby = ({ page, getNextPage, setPage, history }) => {
   return (
     <div className="lobby">
       {loading && <Loading />}
-      <div className={!conversations[0] ? 'empty-lobby' : "lobby-grid"}>
-
+      <div className={!conversations[0] ? "empty-lobby" : "lobby-grid"}>
         {/* {!!conversations && <p>EMPP</p>} */}
-        {!conversations[0] ? <p>No conversations currently available to join</p> : conversations.map((i) => (
-          <Conversation
-            topic={i.topic}
-            color1={i.joinedUsers[0].color1}
-            color2={i.joinedUsers[0].color2}
-            color3={i.joinedUsers[0].color3}
-            id={i._id.$oid}
-            joinConversation={joinAndGoToConversation}
-          />
-        ))  }
+        {!conversations[0] ? (
+          <div style={{textAlign:'center', margin:'40px'}}>
+            {" "}
+            <p style={{fontWeight:'400', fontSize: '16px'}}>
+              No conversations currently available to join
+            </p>
+             {/* <span style={{fontSize:'14px'}}>You can create the first conversation by pressing the 'Start my own discussion' button above here  </span>{" "} */}
+          </div>
+        ) : (
+          conversations.map((i) => (
+            <Conversation
+              topic={i.topic}
+              color1={i.joinedUsers[0].color1}
+              color2={i.joinedUsers[0].color2}
+              color3={i.joinedUsers[0].color3}
+              id={i._id.$oid}
+              joinConversation={joinAndGoToConversation}
+            />
+          ))
+        )}
       </div>
     </div>
   );

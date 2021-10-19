@@ -152,33 +152,36 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
       )}
 
       {/* Header */}
-      <div
-        className="header"
-        // style={{ marginBottom: "0px", position: "absolute" }}
-      >
-        <div className="top-profile">
-          <div style={{ marginLeft: "5px", marginRight: "10px" }}>
-            <Avatar
-              size="40px"
-              color1={color1}
-              color2={color2}
-              color3={color3}
-            />
+      <div className="header">
+          <div className="top-profile">
+            <div style={{ marginLeft: "5px", marginRight: "10px" }}>
+              <Avatar
+                size="40px"
+                color1={color1}
+                color2={color2}
+                color3={color3}
+              />
+            </div>
+            <a
+              href="/"
+              id="reshuffle-avatar-button"
+              style={{ cursor: "pointer", visibility:'hidden'  }}
+              
+            >
+              Reshuffle your avatar
+            </a>
           </div>
-          <div style={{ marginRight: "0px" }}></div>
+          <img
+            src={logo}
+            style={{
+              height: "39.67",
+              width: "250px",
+              marginTop: "20px",
+              marginBottom: "20px",
+            }}
+          />
+          <div id="header-filler" style={{ width: "190px" }}></div>
         </div>
-        <img
-          src={logo}
-          style={{
-            height: "39.67",
-            width: "250px",
-            marginTop: "20px",
-            marginBottom: "20px",
-          }}
-        />
-        <div style={{ width: "50px" }}></div>
-      </div>
-      <div>
         {/* Chat */}
         <div className="chat-container">
           {/* Chat header */}
@@ -275,7 +278,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

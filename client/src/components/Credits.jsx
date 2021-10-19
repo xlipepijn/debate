@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 const Credits = (props) => {
     return (
       <>
-        <div className={props.right ? "credits-container right-aligned" : 'credits-container'}>
+        <div className={props.right ? "credits-container right-aligned" : ''}>
           <a
             href="https://www.linkedin.com/in/pepijn-eikelboom-60a322133/"
             target="_blank"
