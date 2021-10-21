@@ -77,6 +77,7 @@ const Home = ({ color1, color2, color3, userId }) => {
     <div className="App padding-bottom">
       <Helmet>
         <meta charset="utf-8" />
+        <title>My Title</title>
         <meta name="description" content="will this work now?" />
         <meta property="og:url" content="https://changemind.nl/" />
         <meta property="og:title" content="Change my Mind" />
