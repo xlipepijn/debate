@@ -10,7 +10,7 @@ import Message from "../components/Message";
 import { useHistory } from "react-router-dom";
 import ErrorModal from '../components/ErrorModal'
 import FeedbackModal from '../components/FeedbackModal'
-import Helmet from 'react-helmet';
+import {Helmet} from 'react-helmet';
 
 const Chat = ({ match, color1, color2, color3, userId }) => {
   const [socket, setSocket] = useState();

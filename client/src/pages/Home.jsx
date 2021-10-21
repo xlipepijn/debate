@@ -12,7 +12,7 @@ import { FiChevronDown } from "react-icons/fi";
 import Credits from "../components/Credits";
 import { io } from "socket.io-client";
 import OnlineUsers from '../components/OnlineUsers'
-import Helmet from 'react/helmet'
+import {Helmet} from 'react/helmet'
 
 const Home = ({ color1, color2, color3, userId }) => {
   let history = useHistory();
