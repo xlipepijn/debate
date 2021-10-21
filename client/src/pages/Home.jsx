@@ -84,6 +84,7 @@ const Home = ({ color1, color2, color3, userId }) => {
           property="og:description"
           content="Challenge believes and change minds"
         />
+        <link rel="canonical" href="https://changemind.nl/" />
       </Helmet>
       <div className="header">
         <div className="top-profile">
