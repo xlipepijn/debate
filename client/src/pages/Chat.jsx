@@ -139,7 +139,21 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
     <div style={{ marginBottom: "40px" }}>
       <Helmet>
         <title>{topic}</title>
-        <meta name='description' content={topic}></meta>
+        <meta name="description" content="will this work now?" />
+        <meta property="og:title" content="European Travel Destinations" />
+        <meta
+          property="og:description"
+          content="Offering tour packages for individuals or groups."
+        />
+        <meta
+          property="og:image"
+          content="https://tiny.cc/public/images/robot_small.png"
+        />
+        <meta
+          property="og:url"
+          content="https://tiny.cc/public/images/robot_small.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       {partnerLeft && (
         <ErrorModal
@@ -159,131 +173,130 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
 
       {/* Header */}
       <div className="header">
-          <div className="top-profile">
-            <div style={{ marginLeft: "5px", marginRight: "10px" }}>
-              <Avatar
-                size="40px"
-                color1={color1}
-                color2={color2}
-                color3={color3}
-              />
-            </div>
-            <a
-              href="/"
-              id="reshuffle-avatar-button"
-              style={{ cursor: "pointer", visibility:'hidden'  }}
-              
-            >
-              Reshuffle your avatar
-            </a>
+        <div className="top-profile">
+          <div style={{ marginLeft: "5px", marginRight: "10px" }}>
+            <Avatar
+              size="40px"
+              color1={color1}
+              color2={color2}
+              color3={color3}
+            />
           </div>
-          <img
-            src={logo}
-            style={{
-              height: "39.67",
-              width: "250px",
-              marginTop: "20px",
-              marginBottom: "20px",
-            }}
-          />
-          <div id="header-filler" style={{ width: "190px" }}></div>
+          <a
+            href="/"
+            id="reshuffle-avatar-button"
+            style={{ cursor: "pointer", visibility: "hidden" }}
+          >
+            Reshuffle your avatar
+          </a>
         </div>
-        {/* Chat */}
-        <div className="chat-container">
-          {/* Chat header */}
-          <div className="chat-header">
-            {challengerJoined ? (
-              <div className="chat-header-left">
-                <div style={{ display: "flex" }}>
-                  <Avatar
-                    size="20px"
-                    color1={colorsOpponent.color1}
-                    color2={colorsOpponent.color2}
-                    color3={colorsOpponent.color3}
-                    noTopFix={true}
-                  />
-                  <p>‎‎‎‎ ‎'s statement:</p>
-                </div>
-                <h3>{topic}</h3>
-              </div>
-            ) : (
-              <div> </div>
-            )}
-            <div className="chat-header-right">
-              <a
-                onClick={endConversationHandler}
-                style={{ color: "red", cursor: "pointer", textAlign: "right" }}
-              >
-                End and leave conversation
-              </a>
-              <div style={{ display: "flex", justifyContent: "end" }}>
-                Time left:
-                <Timer
-                  timeTillTimeOut={200}
-                  startTimer={startTimer}
-                  stopTimer={stopConversation}
+        <img
+          src={logo}
+          style={{
+            height: "39.67",
+            width: "250px",
+            marginTop: "20px",
+            marginBottom: "20px",
+          }}
+        />
+        <div id="header-filler" style={{ width: "190px" }}></div>
+      </div>
+      {/* Chat */}
+      <div className="chat-container">
+        {/* Chat header */}
+        <div className="chat-header">
+          {challengerJoined ? (
+            <div className="chat-header-left">
+              <div style={{ display: "flex" }}>
+                <Avatar
+                  size="20px"
+                  color1={colorsOpponent.color1}
+                  color2={colorsOpponent.color2}
+                  color3={colorsOpponent.color3}
+                  noTopFix={true}
                 />
-                sec.
+                <p>‎‎‎‎ ‎'s statement:</p>
               </div>
+              <h3>{topic}</h3>
+            </div>
+          ) : (
+            <div> </div>
+          )}
+          <div className="chat-header-right">
+            <a
+              onClick={endConversationHandler}
+              style={{ color: "red", cursor: "pointer", textAlign: "right" }}
+            >
+              End and leave conversation
+            </a>
+            <div style={{ display: "flex", justifyContent: "end" }}>
+              Time left:
+              <Timer
+                timeTillTimeOut={200}
+                startTimer={startTimer}
+                stopTimer={stopConversation}
+              />
+              sec.
             </div>
           </div>
-          {/* Chat content */}
-          <div className="chat-content-container">
-            {!challengerJoined ? (
-              <div className="waiting-room-container center">
-                <p>Statement:</p>
-                <h2>{topic}</h2>
-                {waiting ? (
-                  <p>Waiting for someone to join... </p>
-                ) : (
-                  <p>challenger joined!</p>
-                )}
-              </div>
-            ) : (
-              <Message
-                message={topic}
-                myMessage={userId === conversationInitializer}
-              />
-            )}
+        </div>
+        {/* Chat content */}
+        <div className="chat-content-container">
+          {!challengerJoined ? (
+            <div className="waiting-room-container center">
+              <p>Statement:</p>
+              <h2>{topic}</h2>
+              {waiting ? (
+                <p>Waiting for someone to join... </p>
+              ) : (
+                <p>challenger joined!</p>
+              )}
+            </div>
+          ) : (
+            <Message
+              message={topic}
+              myMessage={userId === conversationInitializer}
+            />
+          )}
 
-            {messages.map((i) => (
-              <Message message={i.text} myMessage={i.userId === userId} />
-            ))}
-            {conversationStopped && <p>CONVERSATION ENDED!</p>}
-            <div ref={messageRef}></div>
-          </div>
-          {/* Chat form */}
-          <div className="chat-form-container">
-            <form className="chat-form" onSubmit={handleSubmitMessage}>
-              <fieldset
-                className={challengerJoined ? "chat-form" : "form-disabled"}
-                disabled={!challengerJoined && "disabled"}
+          {messages.map((i) => (
+            <Message message={i.text} myMessage={i.userId === userId} />
+          ))}
+          {conversationStopped && <p>CONVERSATION ENDED!</p>}
+          <div ref={messageRef}></div>
+        </div>
+        {/* Chat form */}
+        <div className="chat-form-container">
+          <form className="chat-form" onSubmit={handleSubmitMessage}>
+            <fieldset
+              className={challengerJoined ? "chat-form" : "form-disabled"}
+              disabled={!challengerJoined && "disabled"}
+            >
+              <input
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                type="text"
+              />
+              <button
+                className={
+                  challengerJoined ? "send-button" : "send-button disabled"
+                }
               >
-                <input
-                  value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  type="text"
-                />
-                <button
-                  className={
-                    challengerJoined ? "send-button" : "send-button disabled"
-                  }
+                <IconContext.Provider
+                  value={{
+                    className: challengerJoined
+                      ? "send-icon"
+                      : "send-icon disabled",
+                  }}
                 >
-                  <IconContext.Provider
-                    value={{
-                      className: challengerJoined
-                        ? "send-icon"
-                        : "send-icon disabled",
-                    }}
-                  >
-                    <FiSend />
-                  </IconContext.Provider>
-                </button>
-              </fieldset>
-            </form>
-          </div>
+                  <FiSend />
+                </IconContext.Provider>
+              </button>
+            </fieldset>
+          </form>
         </div>
       </div>
+    </div>
     // </div>
   );
 };
