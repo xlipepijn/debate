@@ -138,6 +138,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   return (
     <div style={{ marginBottom: "40px" }}>
       <Helmet>
+        <meta charset="utf-8" />
         <title>{topic}</title>
         <meta name="description" content="will this work now?" />
         <meta property="og:title" content="European Travel Destinations" />
