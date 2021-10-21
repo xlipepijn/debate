@@ -11,20 +11,19 @@ import { getJoinedConversation } from "../API/Calls";
 import { FiChevronDown } from "react-icons/fi";
 import Credits from "../components/Credits";
 import { io } from "socket.io-client";
-import OnlineUsers from '../components/OnlineUsers'
+import OnlineUsers from "../components/OnlineUsers";
 import { Helmet } from "react-helmet";
-
 
 const Home = ({ color1, color2, color3, userId }) => {
   let history = useHistory();
-  const [didMount, setDidMount] = useState(false)
+  const [didMount, setDidMount] = useState(false);
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [socket, setSocket] = useState();
-  const [amountOfUsersInLobby, setAmountOfUsersInLobby] = useState(0)
+  const [amountOfUsersInLobby, setAmountOfUsersInLobby] = useState(0);
 
   useEffect(() => {
-     const s = io.connect("https://changemymind-pep.herokuapp.com/");
+    const s = io.connect("https://changemymind-pep.herokuapp.com/");
     setSocket(s);
     getJoinedConversation(userId)
       .then((json) =>
@@ -40,16 +39,16 @@ const Home = ({ color1, color2, color3, userId }) => {
 
   useEffect(() => {
     if (!didMount) {
-      setDidMount(true)
+      setDidMount(true);
     } else {
       socket.on("connect", () => {
-        socket.emit('join-lobby')
+        socket.emit("join-lobby");
       });
-      socket.on('user joined lobby', usersInlobby => {
-        setAmountOfUsersInLobby(usersInlobby - 1)
-      })
+      socket.on("user joined lobby", (usersInlobby) => {
+        setAmountOfUsersInLobby(usersInlobby - 1);
+      });
     }
-  }, [socket])
+  }, [socket]);
 
   const createUser = () => {
     localStorage.setItem("color1", getRandomColor());
@@ -79,6 +78,12 @@ const Home = ({ color1, color2, color3, userId }) => {
       <Helmet>
         <meta charset="utf-8" />
         <meta name="description" content="will this work now?" />
+        <meta property="og:url" content="https://changemind.nl/" />
+        <meta property="og:title" content="Change my Mind" />
+        <meta
+          property="og:description"
+          content="Challenge believes and change minds"
+        />
       </Helmet>
       <div className="header">
         <div className="top-profile">
