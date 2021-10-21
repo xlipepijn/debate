@@ -10,7 +10,8 @@ import Message from "../components/Message";
 import { useHistory } from "react-router-dom";
 import ErrorModal from '../components/ErrorModal'
 import FeedbackModal from '../components/FeedbackModal'
-import Credits from '../components/Credits'
+import Helmet from 'react-helmet';
+
 const Chat = ({ match, color1, color2, color3, userId }) => {
   const [socket, setSocket] = useState();
   const [connected, setConnected] = useState(false);
@@ -34,6 +35,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   const [rating, setRating] = useState(null)
   const [receivedFeedback, setReceivedFeedback] = useState(null)
   const messageRef = useRef(null)
+  
 
   // Connect to Socket and get Conversation data
   useEffect(() => {
@@ -135,6 +137,10 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   }
   return (
     <div style={{ marginBottom: "40px" }}>
+      <Helmet>
+        <title>{topic}</title>
+        <meta name='description' content={topic}></meta>
+      </Helmet>
       {partnerLeft && (
         <ErrorModal
           errorMessage="Your conversation partner has left the conversation. Press the button below to go back to the lobby screen"
