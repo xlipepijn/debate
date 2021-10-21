@@ -6,11 +6,6 @@ import NewUser from "./pages/NewUser";
 import Chat from "./pages/Chat";
 import Avatar from "./components/Avatar";
 
-
-
-
-
-
 function App() {
   const userExists = useRef(false);
   const userId = localStorage.getItem("userId");
@@ -28,22 +23,18 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          {userExists.current ?
-          <Home
-            color1={color1}
-            color2={color2}
-            color3={color3}
-            userId={userId}
-          />
-          :<NewUser/>
-          
-          
-          }
-          {/* {!userExists.current && <Redirect to="/new-user" />} */}
+          {userExists.current ? (
+            <Home
+              color1={color1}
+              color2={color2}
+              color3={color3}
+              userId={userId}
+            />
+          ) : (
+            <NewUser />
+          )}
         </Route>
-        {/* <Route path="/new-user" component={NewUser}>
-          {userExists.current && <Redirect to="/" />}
-        </Route> */}
+
         <Route
           path="/chat/:id"
           render={({ match }) => (
