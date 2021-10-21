@@ -12,7 +12,7 @@ import { FiChevronDown } from "react-icons/fi";
 import Credits from "../components/Credits";
 import { io } from "socket.io-client";
 import OnlineUsers from '../components/OnlineUsers'
-import {Helmet} from 'react/helmet'
+
 
 const Home = ({ color1, color2, color3, userId }) => {
   let history = useHistory();
@@ -75,9 +75,6 @@ const Home = ({ color1, color2, color3, userId }) => {
 
   return (
     <div className="App padding-bottom">
-      <Helmet>
-        <title>Change my Mind</title>
-      </Helmet>
       <div className="header">
         <div className="top-profile">
           <div style={{ marginLeft: "5px", marginRight: "10px" }}>
