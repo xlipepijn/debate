@@ -1,7 +1,7 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { render } from "react-snapshot";
 import App from './App';
+import {render} from 'react-snapshot'
 // import { hydrate, render } from "react-dom";
 
 // const rootElement = document.getElementById("root");
