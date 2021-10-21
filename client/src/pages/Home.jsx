@@ -75,7 +75,6 @@ const Home = ({ color1, color2, color3, userId }) => {
 
   return (
     <div className="App padding-bottom">
-      <Link to='/chat'>Go to this link</Link>
       <div className="header">
         <div className="top-profile">
           <div style={{ marginLeft: "5px", marginRight: "10px" }}>
