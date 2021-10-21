@@ -12,6 +12,7 @@ import { FiChevronDown } from "react-icons/fi";
 import Credits from "../components/Credits";
 import { io } from "socket.io-client";
 import OnlineUsers from '../components/OnlineUsers'
+import { Helmet } from "react-helmet";
 
 
 const Home = ({ color1, color2, color3, userId }) => {
@@ -75,6 +76,10 @@ const Home = ({ color1, color2, color3, userId }) => {
 
   return (
     <div className="App padding-bottom">
+      <Helmet>
+        <meta charset="utf-8" />
+        <meta name="description" content="will this work now?" />
+      </Helmet>
       <div className="header">
         <div className="top-profile">
           <div style={{ marginLeft: "5px", marginRight: "10px" }}>
@@ -113,10 +118,7 @@ const Home = ({ color1, color2, color3, userId }) => {
             a discussion yourself by pressing 'start your own disussion'
           </p>
 
-          <div
-            id="home-buttons-container"
-            style={{ display: "flex" }}
-          >
+          <div id="home-buttons-container" style={{ display: "flex" }}>
             <button
               onClick={toggleModal}
               style={{ marginTop: "25px", marginRight: "5px" }}
@@ -138,9 +140,9 @@ const Home = ({ color1, color2, color3, userId }) => {
               Show me other discussions
             </button>
           </div>
-        {amountOfUsersInLobby != 0 && (
-          <OnlineUsers amountOnline={amountOfUsersInLobby} />
-        )}
+          {amountOfUsersInLobby != 0 && (
+            <OnlineUsers amountOnline={amountOfUsersInLobby} />
+          )}
         </div>
         <div
           className="available-conversations-text flex"
