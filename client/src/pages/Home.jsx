@@ -1,6 +1,6 @@
 import Lobby from "../Containers/Lobby";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CreateConversation from "../components/CreateConversation";
 import Avatar from "../components/Avatar";
 import logo from "../images/logo.png";
@@ -75,6 +75,7 @@ const Home = ({ color1, color2, color3, userId }) => {
 
   return (
     <div className="App padding-bottom">
+      <Link to='/chat'>Go to this link</Link>
       <div className="header">
         <div className="top-profile">
           <div style={{ marginLeft: "5px", marginRight: "10px" }}>
