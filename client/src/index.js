@@ -5,8 +5,10 @@ import { hydrate, render } from "react-dom";
 
 const rootElement = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
+  console.log("Hydrated render");
   hydrate(<App />, rootElement);
 } else {
+  console.log("Normal render")
   render(<App />, rootElement);
 }
 

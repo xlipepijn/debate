@@ -20,19 +20,46 @@ function App() {
   }
 
   return (
+    // <BrowserRouter>
+    //   <Switch>
+    //     <Route path="/" exact>
+    //       {userExists.current ? (
+    //         <Home
+    //           color1={color1}
+    //           color2={color2}
+    //           color3={color3}
+    //           userId={userId}
+    //         />
+    //       ) : (
+    //         <NewUser />
+    //       )}
+    //     </Route>
+
+    //     <Route
+    //       path="/chat/:id"
+    //       render={({ match }) => (
+    //         <Chat
+    //           match={match}
+    //           color1={color1}
+    //           color2={color2}
+    //           color3={color3}
+    //           userId={userId}
+    //         />
+    //       )}
+    //     />
+    //     <Route path="/avatar" component={Avatar}></Route>
+    //   </Switch>
+    // </BrowserRouter>
+
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          {userExists.current ? (
-            <Home
-              color1={color1}
-              color2={color2}
-              color3={color3}
-              userId={userId}
-            />
-          ) : (
-            <NewUser />
-          )}
+          <Home
+            color1={color1}
+            color2={color2}
+            color3={color3}
+            userId={userId}
+          />
         </Route>
 
         <Route
