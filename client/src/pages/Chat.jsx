@@ -140,7 +140,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
       <Helmet>
         <meta charset="utf-8" />
         <title>{topic}</title>
-        <meta name="description" content="will this work now?" />
+        <meta name="description" content={topic} />
         <meta property="og:title" content="European Travel Destinations" />
         <meta
           property="og:description"
