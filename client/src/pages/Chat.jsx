@@ -139,8 +139,14 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
     <div style={{ marginBottom: "40px" }}>
       <Helmet>
         <meta charset="utf-8" />
-        <title>{topic}</title>
-        <meta name="description" content={topic} />
+        <title>My Title</title>
+        <meta name="description" content="at least this part is working, right?" />
+        <meta property="og:url" content="https://changemind.nl/" />
+        <meta property="og:title" content="Change my Mind" />
+        <meta
+          property="og:description"
+          content="Challenge believes and change minds"
+        />
         <meta property="og:title" content="European Travel Destinations" />
         <meta
           property="og:description"
@@ -148,13 +154,13 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
         />
         <meta
           property="og:image"
-          content="https://tiny.cc/public/images/robot_small.png"
+          content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/1200px-Emblem-person-blue.svg.png"
         />
         <meta
           property="og:url"
-          content="https://tiny.cc/public/images/robot_small.png"
+          content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/1200px-Emblem-person-blue.svg.png"
         />
-        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://changemind.nl/chat/" />
       </Helmet>
       {partnerLeft && (
         <ErrorModal
