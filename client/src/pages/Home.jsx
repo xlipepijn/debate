@@ -12,7 +12,6 @@ import { FiChevronDown } from "react-icons/fi";
 import Credits from "../components/Credits";
 import { io } from "socket.io-client";
 import OnlineUsers from "../components/OnlineUsers";
-import { Helmet } from "react-helmet";
 
 const Home = ({ color1, color2, color3, userId }) => {
   let history = useHistory();
@@ -75,31 +74,6 @@ const Home = ({ color1, color2, color3, userId }) => {
 
   return (
     <div className="App padding-bottom">
-      <Helmet>
-        <meta charset="utf-8" />
-        <title>My Title</title>
-        <meta name="description" content="will this work now?" />
-        <meta property="og:url" content="https://changemind.nl/" />
-        <meta property="og:title" content="Change my Mind" />
-        <meta
-          property="og:description"
-          content="Challenge believes and change minds"
-        />
-        <meta property="og:title" content="European Travel Destinations" />
-        <meta
-          property="og:description"
-          content="Offering tour packages for individuals or groups."
-        />
-        <meta
-          property="og:image"
-          content="https://tiny.cc/public/images/robot_small.png"
-        />
-        <meta
-          property="og:url"
-          content="https://tiny.cc/public/images/robot_small.png"
-        />
-        <link rel="canonical" href="https://changemind.nl/" />
-      </Helmet>
       <div className="header">
         <div className="top-profile">
           <div style={{ marginLeft: "5px", marginRight: "10px" }}>

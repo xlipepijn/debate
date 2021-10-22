@@ -10,7 +10,6 @@ import Message from "../components/Message";
 import { useHistory } from "react-router-dom";
 import ErrorModal from '../components/ErrorModal'
 import FeedbackModal from '../components/FeedbackModal'
-import {Helmet} from 'react-helmet';
 
 const Chat = ({ match, color1, color2, color3, userId }) => {
   const [socket, setSocket] = useState();
@@ -137,31 +136,6 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   }
   return (
     <div style={{ marginBottom: "40px" }}>
-      <Helmet>
-        <meta charset="utf-8" />
-        <title>My Title</title>
-        <meta name="description" content="at least this part is working, right?" />
-        <meta property="og:url" content="https://changemind.nl/chat/" />
-        <meta property="og:title" content="Change my Mind" />
-        <meta
-          property="og:description"
-          content="Challenge believes and change minds"
-        />
-        <meta property="og:title" content="European Travel Destinations" />
-        <meta
-          property="og:description"
-          content="Offering tour packages for individuals or groups."
-        />
-        <meta
-          property="og:image"
-          content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/1200px-Emblem-person-blue.svg.png"
-        />
-        <meta
-          property="og:url"
-          content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/1200px-Emblem-person-blue.svg.png"
-        />
-        <link rel="canonical" href="https://changemind.nl/chat/" />
-      </Helmet>
       {partnerLeft && (
         <ErrorModal
           errorMessage="Your conversation partner has left the conversation. Press the button below to go back to the lobby screen"
