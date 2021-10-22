@@ -436,9 +436,18 @@ input {
   height: 24px;
 }
 
+.link-icon {
+  height: 16px;
+  fill: white !important;
+  margin-right: 5px;
+}
+
+.link-button:active{background-color:#EE5B00 !important;}
+
 .waiting-room-container {
   width: 100%;
   height: 100%;
+  position: relative;
   /* margin: 0 auto; */
 }
 
@@ -457,6 +466,7 @@ input {
 }
 
 .chat-header-left {
+  max-width: 530px;
 }
 
 .form-disabled:disabled {
@@ -477,8 +487,9 @@ input {
 }
 
 .chat-bubble {
-  background-color:#E5E5E5;
-border: none;
+  max-width: 320px !important;
+  background-color: #e5e5e5;
+  border: none;
   width: fit-content;
   padding: 10px;
   border-radius: 9px;
@@ -527,22 +538,22 @@ border: none;
 }
 
 .face-avatar {
-     position: absolute;
-    left: 16%;
-    top: 14%;
-    z-index: 100;
-    width: 75%;
+  position: absolute;
+  left: 16%;
+  top: 14%;
+  z-index: 100;
+  width: 75%;
 }
 
 .link-icon {
   width: 14px;
   margin-left: 3px;
-  fill: #CF3636;
+  fill: #cf3636;
   margin-top: 2px;
 }
 
 .credits-container {
-  position:absolute;
+  position: absolute;
   bottom: 10px;
 }
 
@@ -550,34 +561,37 @@ border: none;
   right: 10px;
 }
 
-.no-top{
-  top:0%;
+.no-top {
+  top: 0%;
 }
 
-.online-users-container{
- 
+.online-users-container {
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   width: fit-content;
   border-radius: 9px;
   position: relative;
-  background-color: #CF3636;
-  
+  background-color: #cf3636;
 }
 
-.pointer-online-users-container{
- width: 0; 
-  height: 0; 
+.pointer-online-users-container {
+  width: 0;
+  height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  
-  border-bottom: 8px solid #CF3636;
+
+  border-bottom: 8px solid #cf3636;
   /* background-color: black; */
   position: absolute;
   left: 17px;
   top: -8px;
- 
+}
+
+.warning-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -616,7 +630,7 @@ border: none;
 }
 
 @media only screen and (max-width: 620px) {
-  .right-aligned{
+  .right-aligned {
     position: fixed;
   }
   .empty-lobby {
@@ -684,6 +698,4 @@ border: none;
   .logo-login {
     max-width: 100%;
   }
-
-  
 }

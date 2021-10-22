@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import animationData from "../images/9131-loading-green.json";
+import animationData from "../images/lf30_editor_4umcxcsy.json";
 
 const Loading = () => {
 

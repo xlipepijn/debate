@@ -8,8 +8,12 @@ import { getConversation, endConversation } from "../API/Calls";
 import Avatar from "../components/Avatar";
 import Message from "../components/Message";
 import { useHistory } from "react-router-dom";
-import ErrorModal from '../components/ErrorModal'
-import FeedbackModal from '../components/FeedbackModal'
+import ErrorModal from "../components/ErrorModal";
+import FeedbackModal from "../components/FeedbackModal";
+import { RiErrorWarningFill } from "react-icons/ri";
+import { BiLinkAlt } from "react-icons/bi";
+import Lottie from "react-lottie";
+import animationData from "../images/lf30_editor_4umcxcsy.json";
 
 const Chat = ({ match, color1, color2, color3, userId }) => {
   const [socket, setSocket] = useState();
@@ -29,12 +33,19 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
     color3: "",
   });
   const [conversationInitializer, setConversationInitializer] = useState("");
-  const[partnerLeft ,setPartnerLeft] = useState(false)
+  const [partnerLeft, setPartnerLeft] = useState(false);
   let history = useHistory();
-  const [rating, setRating] = useState(null)
-  const [receivedFeedback, setReceivedFeedback] = useState(null)
-  const messageRef = useRef(null)
-  
+  const [rating, setRating] = useState(null);
+  const [receivedFeedback, setReceivedFeedback] = useState(null);
+  const messageRef = useRef(null);
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   // Connect to Socket and get Conversation data
   useEffect(() => {
@@ -74,7 +85,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
           ...messages,
           { userId: userId, text: text },
         ]);
-        messageRef.current.scrollIntoView(); 
+        messageRef.current.scrollIntoView();
       });
       socket.on("challenger joined", () => {
         setWaiting(false);
@@ -83,12 +94,12 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
       });
       socket.on("disconnect", () => {
         setConnected(false);
-        endConversation(room)
+        endConversation(room);
       });
-      socket.on('partner-left', () => {
-        setPartnerLeft(true)
-        endConversation(room)
-      })
+      socket.on("partner-left", () => {
+        setPartnerLeft(true);
+        endConversation(room);
+      });
       socket.on("receive-feedback", (opponentRating) => {
         console.log("opponentRating");
         receiveFeedback(opponentRating);
@@ -100,12 +111,12 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   const handleSubmitMessage = (e) => {
     e.preventDefault();
 
-    if (newMessage != '') {
+    if (newMessage != "") {
       socket.emit("send-message", {
         userId: userId,
         text: newMessage,
       });
-    } 
+    }
 
     setNewMessage("");
   };
@@ -124,7 +135,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
 
   const goBackToHome = () => {
     endConversation(room).then(() => history.push("/"));
-  }
+  };
 
   const rate = (e) => {
     e.preventDefault();
@@ -132,8 +143,9 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   };
 
   const receiveFeedback = (opponentRating) => {
-    setReceivedFeedback(opponentRating)
-  }
+    setReceivedFeedback(opponentRating);
+  };
+
   return (
     <div style={{ marginBottom: "40px" }}>
       {partnerLeft && (
@@ -226,12 +238,68 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
           {!challengerJoined ? (
             <div className="waiting-room-container center">
               <p>Statement:</p>
-              <h2>{topic}</h2>
+              <h2 style={{textAlign:'center'}}>{topic}</h2>
               {waiting ? (
-                <p>Waiting for someone to join... </p>
+                <div className="flex">
+                  <Lottie
+                    options={defaultOptions}
+                    height={32}
+                    width={32}
+                    isStopped={false}
+                    isPaused={false}
+                  />
+                  <p>Waiting for someone to join... </p>
+                </div>
               ) : (
                 <p>challenger joined!</p>
               )}
+              <div
+                style={{
+                  marginTop: "10px",
+                  width: "225px",
+                  display: "-webkit-inline-box",
+                  borderStyle: 'solid',
+                  padding: "10px",
+                  borderWidth: "1px",
+                  borderRadius: "4px",
+                }}
+              >
+                <IconContext.Provider
+                  value={{
+                    className: "warning-icon",
+                  }}
+                >
+                  <RiErrorWarningFill />
+                </IconContext.Provider>
+
+                <p style={{ fontSize: "12px" }}>
+                  Please make sure to not share any personal information within
+                  any discussion on this website
+                </p>
+              </div>
+              <button
+                className="primary-button flex link-button"
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                }}
+                style={{
+                  width: "auto",
+                  position: "absolute",
+                  bottom: "0px",
+                  backgroundColor: "#FF6200",
+                  fontSize: "12px",
+                  fontWeight: 400,
+                }}
+              >
+                <IconContext.Provider
+                  value={{
+                    className: "link-icon",
+                  }}
+                >
+                  <BiLinkAlt />
+                </IconContext.Provider>
+                Copy shareable link
+              </button>
             </div>
           ) : (
             <Message
