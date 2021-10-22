@@ -85,6 +85,19 @@ const Home = ({ color1, color2, color3, userId }) => {
           property="og:description"
           content="Challenge believes and change minds"
         />
+        <meta property="og:title" content="European Travel Destinations" />
+        <meta
+          property="og:description"
+          content="Offering tour packages for individuals or groups."
+        />
+        <meta
+          property="og:image"
+          content="https://tiny.cc/public/images/robot_small.png"
+        />
+        <meta
+          property="og:url"
+          content="https://tiny.cc/public/images/robot_small.png"
+        />
         <link rel="canonical" href="https://changemind.nl/" />
       </Helmet>
       <div className="header">
