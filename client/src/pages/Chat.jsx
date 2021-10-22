@@ -311,7 +311,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
               >
                 <IconContext.Provider
                   value={{
-                    className: "link-icon",
+                    className: "link-icon-2",
                   }}
                 >
                   <BiLinkAlt />
