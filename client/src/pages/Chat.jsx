@@ -46,6 +46,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  const [showCopiedText, setShowCopiedText] = useState(false);
 
   // Connect to Socket and get Conversation data
   useEffect(() => {
@@ -146,6 +147,11 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
     setReceivedFeedback(opponentRating);
   };
 
+  const toggleShowCopiedText = () => {
+    setShowCopiedText(true);
+    setTimeout(() => setShowCopiedText(false), 2000);
+  };
+
   return (
     <div style={{ marginBottom: "40px" }}>
       {partnerLeft && (
@@ -238,7 +244,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
           {!challengerJoined ? (
             <div className="waiting-room-container center">
               <p>Statement:</p>
-              <h2 style={{textAlign:'center'}}>{topic}</h2>
+              <h2 style={{ textAlign: "center" }}>{topic}</h2>
               {waiting ? (
                 <div className="flex">
                   <Lottie
@@ -258,10 +264,11 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
                   marginTop: "10px",
                   width: "225px",
                   display: "-webkit-inline-box",
-                  borderStyle: 'solid',
+                  borderStyle: "solid",
                   padding: "10px",
                   borderWidth: "1px",
                   borderRadius: "4px",
+                  borderColor: "#CF3636",
                 }}
               >
                 <IconContext.Provider
@@ -272,15 +279,26 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
                   <RiErrorWarningFill />
                 </IconContext.Provider>
 
-                <p style={{ fontSize: "12px" }}>
+                <p style={{ fontSize: "12px", color: "#CF3636" }}>
                   Please make sure to not share any personal information within
                   any discussion on this website
                 </p>
               </div>
+
+              {showCopiedText && (
+              <div
+                className="copied-tooltip"
+                style={{ position: "absolute", bottom: "60px" }}
+              >
+                <div className='tooltip-pointer'></div>
+                  <p style={{ color: "white", fontSize: "12px" }}>Copied!</p>
+              </div>
+                )}
               <button
                 className="primary-button flex link-button"
                 onClick={() => {
                   navigator.clipboard.writeText(window.location.href);
+                  toggleShowCopiedText();
                 }}
                 style={{
                   width: "auto",
