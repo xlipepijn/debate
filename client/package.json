@@ -48,6 +48,6 @@
     "react-snapshot": "^1.3.0"
   },
   "reactSnap": {
-    "include": ["/","/chat/*", "/new-user/", "/chat/","/:"]
+    "include": ["/","/chat/"]
   }
 }

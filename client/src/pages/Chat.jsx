@@ -141,7 +141,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
         <meta charset="utf-8" />
         <title>My Title</title>
         <meta name="description" content="at least this part is working, right?" />
-        <meta property="og:url" content="https://changemind.nl/" />
+        <meta property="og:url" content="https://changemind.nl/chat/" />
         <meta property="og:title" content="Change my Mind" />
         <meta
           property="og:description"
