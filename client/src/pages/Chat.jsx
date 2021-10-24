@@ -14,6 +14,7 @@ import { RiErrorWarningFill } from "react-icons/ri";
 import { BiLinkAlt } from "react-icons/bi";
 import Lottie from "react-lottie";
 import animationData from "../images/lf30_editor_4umcxcsy.json";
+import typingAnimation from '../images/typingAnimation.json'
 
 const Chat = ({ match, color1, color2, color3, userId }) => {
   const [socket, setSocket] = useState();
@@ -25,6 +26,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   const [newMessage, setNewMessage] = useState();
   const [conversationStopped, setConversationStopped] = useState(false);
   const [challengerJoined, setChallengerJoined] = useState(false);
+  const [currentlyTyping, setCurentlyTyping] = useState(false)
   const [topic, setTopic] = useState("");
   const [waiting, setWaiting] = useState(true);
   const [colorsOpponent, setColorsOpponnent] = useState({
@@ -46,12 +48,20 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  const typingAnimationOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: typingAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   const [showCopiedText, setShowCopiedText] = useState(false);
 
   // Connect to Socket and get Conversation data
   useEffect(() => {
-    // const s = io.connect("http://localhost:3001");
-    const s = io.connect("https://changemymind-pep.herokuapp.com/");
+    const s = io.connect("http://localhost:3001");
+    // const s = io.connect("https://changemymind-pep.herokuapp.com/");
     setSocket(s);
     getConversation(room)
       .then(
@@ -105,8 +115,22 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
         console.log("opponentRating");
         receiveFeedback(opponentRating);
       });
+      socket.on('currently typing', () => {
+        setCurentlyTyping(true)
+      })
+      socket.on('stopped typing', () => {
+        setCurentlyTyping(false)
+      })
     }
   }, [socket]);
+
+  // Show typing indicator
+  useEffect(() => {
+    if (didMount) {
+      socket.emit('currently typing')
+      setTimeout(() => socket.emit("stopped typing"), 2000);
+    }
+  }, [newMessage])
 
   // Form handler
   const handleSubmitMessage = (e) => {
@@ -286,14 +310,14 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
               </div>
 
               {showCopiedText && (
-              <div
-                className="copied-tooltip"
-                style={{ position: "absolute", bottom: "60px" }}
-              >
-                <div className='tooltip-pointer'></div>
+                <div
+                  className="copied-tooltip"
+                  style={{ position: "absolute", bottom: "60px" }}
+                >
+                  <div className="tooltip-pointer"></div>
                   <p style={{ color: "white", fontSize: "12px" }}>Copied!</p>
-              </div>
-                )}
+                </div>
+              )}
               <button
                 className="primary-button flex link-button"
                 onClick={() => {
@@ -329,7 +353,17 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
           {messages.map((i) => (
             <Message message={i.text} myMessage={i.userId === userId} />
           ))}
-          {conversationStopped && <p>CONVERSATION ENDED!</p>}
+          {currentlyTyping && (
+            <div style={{float:'left'}}>
+              <Lottie
+                options={typingAnimationOptions}
+                height={32}
+                width={32}
+                isStopped={false}
+                isPaused={false}
+              />
+            </div>
+          )}
           <div ref={messageRef}></div>
         </div>
         {/* Chat form */}

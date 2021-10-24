@@ -1,16 +1,7 @@
-// const server = express()
-const PORT = process.env.PORT || 3001;
-// const io = socketIO(server)
-//       "https://gracious-mirzakhani-0dd9d5.netlify.app",
-//       "https://changemind.nl/",
 
-// const io = require("socket.io")(PORT, {
-//   cors: {
-//     origin: ["https://changemind.nl:*", "http://localhost:3000/:*"],
-//     methods: ["GET", "POST"],
-//     credentials: true,
-//   },
-// });
+const PORT = process.env.PORT || 3001;
+// const PORT = 3001;
+
 const io = require("socket.io")(PORT, {
   cors: {
     origin: ["https://changemind.nl", "http://localhost:3000"],
@@ -57,6 +48,12 @@ io.on("connection", (socket) => {
     socket.on("rate-opponent", (rating) => {
       console.log(rating);
       socket.broadcast.to(room).emit("receive-feedback", rating);
+    });
+    socket.on('currently typing', () => {
+      socket.broadcast.to(room).emit('currently typing')
+    })
+    socket.on("stopped typing", () => {
+      socket.broadcast.to(room).emit("stopped typing");
     });
   });
 });
