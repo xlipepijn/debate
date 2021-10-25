@@ -615,6 +615,12 @@ input {
   transform: rotate(45deg);
 }
 
+.product-hunt-badge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
 @media only screen and (max-width: 1000px) {
   .lobby {
     width: 100%;
@@ -703,6 +709,11 @@ input {
 
   .available-conversations-text {
     display: flex;
+  }
+
+  .product-hunt-badge{
+    position: inherit;
+    margin-top: 10px;
   }
 }
 
