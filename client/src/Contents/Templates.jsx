@@ -21,7 +21,7 @@ const templates = [
   },
   {
     name: "... shouldn't exist",
-    content: [1, "shouldn't exist"],
+    content: [1, " shouldn't exist"],
   },
   {
     name: "... are superior to ...",
