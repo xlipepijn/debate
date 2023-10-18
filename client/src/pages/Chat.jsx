@@ -61,7 +61,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   // Connect to Socket and get Conversation data
   useEffect(() => {
     // const s = io.connect("http://localhost:3001");
-    const s = io.connect("https://changemymind-pep.herokuapp.com/");
+    const s = io.connect("https://debate-backend.vercel.app/");
     setSocket(s);
     getConversation(room)
       .then(

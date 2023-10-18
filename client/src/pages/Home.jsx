@@ -22,7 +22,7 @@ const Home = ({ color1, color2, color3, userId }) => {
   const [amountOfUsersInLobby, setAmountOfUsersInLobby] = useState(0);
 
   useEffect(() => {
-    const s = io.connect("https://changemymind-pep.herokuapp.com/");
+    const s = io.connect("https://debate-backend.vercel.app/");
     setSocket(s);
     getJoinedConversation(userId)
       .then((json) =>
