@@ -51,6 +51,6 @@
     "include": ["/","/chat/"]
   },
   "engines" : {
-    "node" : "12.22.12"
+    "node" : "18.x"
   }
 }
