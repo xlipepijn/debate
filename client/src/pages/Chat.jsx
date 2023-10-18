@@ -14,7 +14,7 @@ import { RiErrorWarningFill } from "react-icons/ri";
 import { BiLinkAlt } from "react-icons/bi";
 import Lottie from "react-lottie";
 import animationData from "../images/lf30_editor_4umcxcsy.json";
-import typingAnimation from '../images/typingAnimation.json'
+import typingAnimation from "../images/typingAnimation.json";
 
 const Chat = ({ match, color1, color2, color3, userId }) => {
   const [socket, setSocket] = useState();
@@ -26,7 +26,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   const [newMessage, setNewMessage] = useState();
   const [conversationStopped, setConversationStopped] = useState(false);
   const [challengerJoined, setChallengerJoined] = useState(false);
-  const [currentlyTyping, setCurentlyTyping] = useState(false)
+  const [currentlyTyping, setCurentlyTyping] = useState(false);
   const [topic, setTopic] = useState("");
   const [waiting, setWaiting] = useState(true);
   const [colorsOpponent, setColorsOpponnent] = useState({
@@ -61,7 +61,9 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
   // Connect to Socket and get Conversation data
   useEffect(() => {
     // const s = io.connect("http://localhost:3001");
-    const s = io.connect("https://debate-backend.vercel.app/");
+    const s = io.connect(
+      "https://frozen-lowlands-81992-055bbf4f19f1.herokuapp.com/"
+    );
     setSocket(s);
     getConversation(room)
       .then(
@@ -115,22 +117,22 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
         console.log("opponentRating");
         receiveFeedback(opponentRating);
       });
-      socket.on('currently typing', () => {
-        setCurentlyTyping(true)
-      })
-      socket.on('stopped typing', () => {
-        setCurentlyTyping(false)
-      })
+      socket.on("currently typing", () => {
+        setCurentlyTyping(true);
+      });
+      socket.on("stopped typing", () => {
+        setCurentlyTyping(false);
+      });
     }
   }, [socket]);
 
   // Show typing indicator
   useEffect(() => {
     if (didMount) {
-      socket.emit('currently typing')
+      socket.emit("currently typing");
       setTimeout(() => socket.emit("stopped typing"), 2000);
     }
-  }, [newMessage])
+  }, [newMessage]);
 
   // Form handler
   const handleSubmitMessage = (e) => {
@@ -354,7 +356,7 @@ const Chat = ({ match, color1, color2, color3, userId }) => {
             <Message message={i.text} myMessage={i.userId === userId} />
           ))}
           {currentlyTyping && (
-            <div style={{float:'left'}}>
+            <div style={{ float: "left" }}>
               <Lottie
                 options={typingAnimationOptions}
                 height={32}

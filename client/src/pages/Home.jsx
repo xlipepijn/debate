@@ -22,7 +22,10 @@ const Home = ({ color1, color2, color3, userId }) => {
   const [amountOfUsersInLobby, setAmountOfUsersInLobby] = useState(0);
 
   useEffect(() => {
-    const s = io.connect("https://debate-backend.vercel.app/");
+    // const s = io.connect("http://localhost:3001");
+    const s = io.connect(
+      "https://frozen-lowlands-81992-055bbf4f19f1.herokuapp.com/"
+    );
     setSocket(s);
     getJoinedConversation(userId)
       .then((json) =>
@@ -163,7 +166,7 @@ const Home = ({ color1, color2, color3, userId }) => {
         )}
       </div>
       <Credits right={true} />
-      <div className='product-hunt-badge'>
+      <div className="product-hunt-badge">
         <a
           href="https://www.producthunt.com/posts/change-my-mind-3?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-change-my-mind-3"
           target="_blank"
@@ -171,7 +174,7 @@ const Home = ({ color1, color2, color3, userId }) => {
           <img
             src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=317015&theme=light"
             alt="Change My Mind - Change minds and be challenged on your own beliefs | Product Hunt"
-            style={{width: '200px', height: '40px'}}
+            style={{ width: "200px", height: "40px" }}
             width="250"
             height="54"
           />
